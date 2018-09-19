@@ -1,0 +1,329 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import "uikit/uikit.less";
+
+ @theme_block-alt-background:                 @panel-box-background;
+ @theme_block-padding-large:                  @global-margin-xlarge;
+ @theme_block-padding-large-large:            90px;
+ @theme-navbar-shadow:                        0 1px 2px rgba(0,0,0,0.1);
+ @theme-navbar-background:                    #fff;
+ @theme-footer-background:                    #344946;
+ @theme-navbar-height:                        47px;
+/* Layout
+ ========================================================================== */
+
+/*
+ * Force vertical scrollbar
+ */
+
+html { overflow-y: scroll;}
+body {
+  background-color: @global-background-color;
+}
+
+/*
+ * Blocks
+ */
+ .tm-block {
+     padding-top:  @grid-gutter-vertical;
+     padding-bottom:  @grid-gutter-vertical;
+ }
+
+ .tm-block-alt {
+     background-color: @theme_block-alt-background;
+     background-position: 0 0;
+     background-repeat: repeat;
+ }
+ .tm-block-alt .uk-panel-box:not(.uk-panel-box-secondary) { background-color:#13202e; }
+ .tm-block-alt .uk-panel-header > .uk-panel-title:after { background-color: @theme_block-alt-background; }
+
+ .tm-block-fullwidth > .uk-container {
+     max-width: 100%;
+     padding: 0;
+ }
+ .tm-block-padding-collapse {
+   padding-top: 0;
+   padding-bottom: 0;
+ }
+ .tm-block-padding-collapse .tm-block-image > .uk-panel {
+     padding-top: (@theme_block-padding-large + 40px);
+     padding-bottom: (@theme_block-padding-large + 40px);
+ }
+
+ //
+// Toolbar
+//
+
+.tm-block-toolbar {
+    position: relative;
+    background-color: #29ABE2;
+    color: #fff;
+    border-bottom: 1px solid #ededf0;
+    // Content layout
+    .tm-toolbar-container {
+        min-height: 40px;
+        .uk-flex;
+        .uk-flex-middle;
+        .uk-flex-space-between;
+    }
+
+}
+.tm-nav.uk-active {
+    background: rgba(255, 255, 255, 0.9) !important;
+    z-index: 9999;
+    position: relative;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-topleft: 4px;
+}
+ 
+#name, #email, #lastname, #phone {
+    height: @global-line-height * 2;
+}
+#message {
+    height: 320px;
+}
+#sticker {
+  z-index: 1009;
+}
+.uk-article h1:after {
+    margin: 0;
+    background: none;
+}
+
+.tm-block-footer {
+    padding: @global-grid-gutter-large 0;
+    background: #0f1823;
+}
+
+.tm-navbar {
+    position: relative;
+    z-index: 2;
+    box-shadow: @theme-navbar-shadow;
+    background: @theme-navbar-background;
+    .tm-navbar-container {
+        .uk-flex;
+        .uk-flex-middle;
+        .uk-flex-space-between;
+    }
+}
+.tm-block-fullwidth {
+    padding: 0;
+    > .uk-container  {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+// Grid collapse (removing the grid gutter) (Warp Option)
+.tm-grid-collapse > .uk-container {
+    &::before,
+    &::after { display: none; }
+    > .uk-grid {
+        width: 100%;
+        margin-left: 0;
+    }
+    > .uk-grid > * {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-left: 0;
+    }
+}
+
+.rev_slider_wrapper {
+  z-index: 1;
+}
+
+
+@media only screen and (max-width: @breakpoint-large), (max-device-width: @breakpoint-large) {
+.uk-navbar-nav > li > a {
+    padding: 0px 5px;
+}
+}
+
+// Mobile navbar
+@media (max-width: @breakpoint-medium) {
+
+    .tm-navbar {
+
+        padding: @global-grid-gutter-small 0;
+
+        // Mobile logo position
+        .uk-navbar-center { max-width: 100%; }
+
+        // Mobile navbar logo position
+        .uk-navbar-content { padding: 0; }
+        // Set Height for mobile devices
+        .tm-navbar-container {
+            box-sizing: border-box;
+            height: @theme-navbar-height;
+        }
+    }
+}
+.uk-logo-desktop {
+  padding-top: @global-height;
+  padding-bottom: @global-height-large;
+}
+/*
+ * Logo small
+ * Remove whitespace caused by vertical centering to prevent logo wrapping into the next line
+ */
+
+.tm-logo-small { letter-spacing: -0.31em; }
+
+/*
+ * Toolbar
+ */
+
+.tm-toolbar .uk-float-left .uk-panel {
+    margin: 0 @global-grid-gutter 0 0;
+    float: left;
+}
+
+.tm-toolbar .uk-float-right .uk-panel {
+    margin: 0 0 0 @global-grid-gutter;
+    float: right;
+}
+
+/*
+ * Headerbar
+ */
+
+.tm-headerbar .tm-logo { float: left; }
+
+.tm-headerbar .uk-panel {
+    max-width: 300px;
+    margin-right: 0;
+    float: right;
+}
+
+/*
+ * Middle
+ */
+
+.tm-main > :nth-child(n+2) { margin-top: @global-grid-gutter; }
+
+.tm-content > :last-child { margin-bottom: 0; }
+
+/*
+ * Footer
+ */
+
+.tm-footer {
+    position: relative;
+    text-align: center;
+    a {
+      color: @global-primary-link-color;
+    }
+}
+
+.tm-footer .uk-panel + .uk-panel { margin-top: @global-grid-gutter; }
+
+/*
+ * To-top scroller
+ */
+
+  .tm-totop-scroller {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1000;
+      width: 40px;
+      border-radius: 50px;
+      height: 40px;
+      border: 2px solid #fc6e51;
+      line-height: 40px;
+      font-size: 14px;
+      color: #fc6e51 !important;
+      text-align: center;
+      -webkit-transition: all linear 0.05s;
+      transition: all linear 0.05s;
+      &:hover {
+        background: #fc6e51;
+    border: 2px solid #fc6e51;
+    color: #ffffff !important;
+    outline: none;
+    }
+
+  }
+
+.tm-totop-scroller:after {
+    content: "\f077";
+    font-family: "FontAwesome";
+}
+
+/*
+ * Hover
+ * 1. Apply hover style also to focus state
+ * 2. Remove default focus style
+ */
+
+.tm-totop-scroller:hover,
+.tm-totop-scroller:focus { /* 1 */
+    color: lighten(@global-color, 20%);
+    font-size: 16px;
+    outline: none; /* 2 */
+    text-decoration: none;
+}
+
+/* Active */
+.tm-totop-scroller:active {
+    color: darken(@global-color, 20%);
+    font-size: 11px;
+}
+
+
+/* Dropdown stack
+ ========================================================================== */
+
+/*
+ * Reset width if column width is set
+ */
+
+.uk-dropdown-navbar.uk-dropdown-stack {
+    min-width: 0 !important;
+    max-width: none !important;
+}
+
+
+/* Blog
+ ========================================================================== */
+
+/*
+ * Leading article
+ * Joomla only
+ */
+
+.tm-leading-article .uk-article:last-child {
+    padding-bottom: @article-margin-top;
+    border-bottom: 1px solid @article-border;
+}
+
+
+/* Error
+ ========================================================================== */
+
+.tm-error-icon { font-size: 250px; }
+
+.tm-error-headline { font-size: 100px; }
+
+
+/* Offline
+ ========================================================================== */
+
+.tm-offline { width: 300px; }
+
+
+/* Socialbuttons
+ ========================================================================== */
+
+ .tm-socialbuttons {
+
+     line-height: 1;
+
+     > div {
+         margin-right: 10px;
+         float: left;
+     }
+ }
