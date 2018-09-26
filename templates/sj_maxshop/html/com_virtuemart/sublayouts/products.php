@@ -100,7 +100,7 @@ foreach ($viewData['products'] as $type => $products ) {
 					<p class="product_s_desc">
 						<?php // Product Short Description
 						if (!empty($product->product_s_desc)) {
-							echo shopFunctionsF::limitStringByWord ($product->product_s_desc, 500, ' ...') ?>
+							//echo shopFunctionsF::limitStringByWord ($product->product_s_desc, 500, ' ...') ?>
 						<?php } ?>
 					</p>
 				<?php  } ?>
